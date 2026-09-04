@@ -1,0 +1,94 @@
+name: Verify imported research stack
+
+on:
+  workflow_run:
+    workflows: ['Import versioned research stack']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Validate lineage and rendered editions
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            'docs/camera-aware-video-generation/research-report/v1.0/en/camera_aware_video_generation_research_v1.0_EN.md'
+            'docs/camera-aware-video-generation/research-report/v1.0/zh-CN/相机感知视频生成与世界模型研究_v1.0_CN.md'
+            'docs/camera-aware-video-generation/research-report/v1.0/slides/camera_aware_video_generation_evolution_recommendations_v1.0_EN.pptx'
+            'docs/camera-aware-video-generation/research-report/v1.0/slides/相机感知视频生成演进与Recomo建议_v1.0_CN.pptx'
+            'docs/spatial-world-model-white-paper/v1.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v1.0_EN.md'
+            'docs/spatial-world-model-white-paper/v1.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v1.0_EN.pdf'
+            'docs/spatial-world-model-white-paper/v1.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v1.0_EN.docx'
+            'docs/spatial-world-model-white-paper/v1.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v1.0_CN.md'
+            'docs/spatial-world-model-white-paper/v1.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v1.0_CN.pdf'
+            'docs/spatial-world-model-white-paper/v1.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v1.0_CN.docx'
+            'docs/spatial-world-model-white-paper/v2.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v2.0_EN.md'
+            'docs/spatial-world-model-white-paper/v2.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v2.0_EN.pdf'
+            'docs/spatial-world-model-white-paper/v2.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v2.0_EN.docx'
+            'docs/spatial-world-model-white-paper/v2.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v2.0_CN.md'
+            'docs/spatial-world-model-white-paper/v2.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v2.0_CN.pdf'
+            'docs/spatial-world-model-white-paper/v2.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v2.0_CN.docx'
+            'docs/spatial-world-model-white-paper/v2.0/source-audit/en/Atlas_Technical_Disclosure_Audit_and_Recomo_Implications_v2.0_EN.md'
+            'docs/spatial-world-model-white-paper/v2.0/source-audit/zh-CN/Atlas技术披露逐项审计与Recomo研发影响_v2.0_CN.md'
+            'docs/spatial-world-model-white-paper/v2.0/VERSION_MANIFEST_v2.0.md'
+          )
+          for path in "${required[@]}"; do
+            test -s "$path" || { echo "Missing or empty: $path" >&2; exit 1; }
+          done
+
+          md_count=$(find docs -type f -name '*.md' | wc -l | tr -d ' ')
+          pdf_count=$(find docs -type f -name '*.pdf' | wc -l | tr -d ' ')
+          docx_count=$(find docs -type f -name '*.docx' | wc -l | tr -d ' ')
+          pptx_count=$(find docs -type f -name '*.pptx' | wc -l | tr -d ' ')
+          figure_count=$(find docs -type f \( -name '*.png' -o -name '*.jpg' -o -name '*.svg' \) | wc -l | tr -d ' ')
+          total_bytes=$(find docs -type f -printf '%s\n' | awk '{s+=$1} END {print s+0}')
+          verified_commit=$(git rev-parse HEAD)
+
+          cat > IMPORT_VERIFICATION.md <<EOF
+          # Research stack import verification
+
+          **Status:** VERIFIED  
+          **Verified commit:** \`${verified_commit}\`  
+          **Workflow run:** ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}  
+          **Required-artifact checks:** 19/19 passed
+
+          ## Inventory
+
+          | Artifact type | Count |
+          |---|---:|
+          | Markdown/source documents | ${md_count} |
+          | PDF editions | ${pdf_count} |
+          | Editable Word editions | ${docx_count} |
+          | PowerPoint decks | ${pptx_count} |
+          | Figures/images | ${figure_count} |
+          | Total bytes under \`docs/\` | ${total_bytes} |
+
+          ## Version policy
+
+          - Research report v1.0: frozen foundational research and bilingual presentation stack.
+          - White paper v1.0: frozen integrated baseline.
+          - White paper v2.0: current position, including the detailed Atlas disclosure audit and the \`SpatialContextPlan\`/context-compiler revision.
+          EOF
+
+      - name: Commit verification record
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add IMPORT_VERIFICATION.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record verified research-stack import [skip ci]'
+          git push origin HEAD:main
