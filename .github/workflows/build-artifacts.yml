@@ -1,0 +1,86 @@
+name: Build derived research artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**/*.md"
+      - "scripts/build_artifacts.py"
+      - "requirements-artifacts.txt"
+      - ".github/workflows/build-artifacts.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-research-artifacts-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-artifacts.txt
+
+      - name: Install CJK fonts and build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-artifacts.txt
+
+      - name: Build PDF, DOCX, and PPTX editions
+        run: python scripts/build_artifacts.py
+
+      - name: Verify generated artifacts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          expected = [
+              Path("docs/spatial-world-model-white-paper/v1.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v1.0_EN.pdf"),
+              Path("docs/spatial-world-model-white-paper/v1.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v1.0_EN.docx"),
+              Path("docs/spatial-world-model-white-paper/v1.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v1.0_CN.pdf"),
+              Path("docs/spatial-world-model-white-paper/v1.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v1.0_CN.docx"),
+              Path("docs/spatial-world-model-white-paper/v2.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v2.0_EN.pdf"),
+              Path("docs/spatial-world-model-white-paper/v2.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v2.0_EN.docx"),
+              Path("docs/spatial-world-model-white-paper/v2.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v2.0_CN.pdf"),
+              Path("docs/spatial-world-model-white-paper/v2.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v2.0_CN.docx"),
+              Path("docs/camera-aware-video-generation/research-report/v1.0/en/camera_aware_video_generation_research_v1.0_EN.pdf"),
+              Path("docs/camera-aware-video-generation/research-report/v1.0/en/camera_aware_video_generation_research_v1.0_EN.docx"),
+              Path("docs/camera-aware-video-generation/research-report/v1.0/zh-CN/相机感知视频生成与世界模型研究_v1.0_CN.pdf"),
+              Path("docs/camera-aware-video-generation/research-report/v1.0/zh-CN/相机感知视频生成与世界模型研究_v1.0_CN.docx"),
+              Path("docs/camera-aware-video-generation/research-report/v1.0/slides/camera_aware_video_generation_evolution_recommendations_v1.0_EN.pptx"),
+              Path("docs/camera-aware-video-generation/research-report/v1.0/slides/相机感知视频生成演进与Recomo建议_v1.0_CN.pptx"),
+          ]
+          missing = [str(path) for path in expected if not path.exists() or path.stat().st_size < 1_000]
+          if missing:
+              raise SystemExit("Missing or unexpectedly small artifacts:\n" + "\n".join(missing))
+          print(f"Verified {len(expected)} generated artifacts.")
+          PY
+
+      - name: Commit generated editions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --cached --quiet; then
+            echo "Generated artifacts are already current."
+          else
+            git commit -m "Build derived PDF, DOCX, and PPTX research artifacts"
+            git push
+          fi
