@@ -1,0 +1,39 @@
+id,title,url,review_scope,checked_on,reproduced,qualification
+P01,World Labs Atlas announcement,https://www.worldlabs.ai/blog/atlas,official_disclosure_text,2026-09-06,false,Graphical camera scores not transcribed; company claims not reproduced
+P02,VGGT-Omega checkpoint notice,https://huggingface.co/facebook/VGGT-Omega/blob/main/README.md,release_notice,2026-09-06,false,August 18 notice concerns released 1B Tables 1 and 2
+P03,Pi3 permutation-equivariant geometry,https://arxiv.org/html/2507.13347v3,targeted_methods,2026-09-06,false,Original Pi3 is not Pi3X
+P04,Pi3 and Pi3X official implementation,https://github.com/yyfz/Pi3,release_documentation,2026-09-06,false,Posed Pi3X and approximate metric scale must be distinguished
+P05,Depth Anything 3,https://arxiv.org/html/2511.10647v1,methods_and_table_3,2026-09-06,false,Original VGGT baseline is not VGGT-Omega
+P06,MapAnything,https://arxiv.org/html/2509.13414v1,targeted_methods_and_limitations,2026-09-06,false,Supplied geometry and its uncertainty require separate tests
+P07,SANA-WM,https://arxiv.org/html/2605.15178v1,table_9_and_alignment_protocol,2026-09-06,false,Recovered trajectories use Sim3; table configurations are not all deployment variants
+P08,HY-World 2.0 and WorldStereo 2.0,https://arxiv.org/html/2604.14268v1,methods_and_tables_6_7,2026-09-06,false,Camera-only starred variants differ from full memory system
+P09,WorldScore,https://haoyi-duan.github.io/WorldScore/,benchmark_project_and_displayed_results,2026-09-06,false,Static project table is not a current universal leaderboard
+P10,PIVOT,https://arxiv.org/html/2608.25401v1,targeted_protocol_and_limitations,2026-09-06,false,Initial five drone scenes; measured poses are not infallible truth
+P11,CUT3R,https://cut3r.github.io/,author_project_methods,2026-09-06,false,Recurrent geometry and virtual queries are not video generation
+P12,AnySplat,https://arxiv.org/html/2505.23716v2,targeted_methods,2026-09-06,false,Explicit renderable output does not imply complete unseen truth
+P13,Glob3R,https://arxiv.org/html/2607.09225v1,targeted_methods,2026-09-06,false,Global optimization is a separate comparison family
+P14,Matrix3D,https://arxiv.org/html/2502.07685v1,targeted_multimodal_formulation,2026-09-06,false,Do not confuse Matrix3D with Matrix-3D or Matrix-Game
+P15,Rays as Pixels,https://arxiv.org/html/2604.09429v4,targeted_joint_formulation,2026-09-06,false,Video-camera joint modeling does not establish joint depth output
+P16,AW4RE,https://arxiv.org/abs/2604.16733,identity_and_abstract,2026-09-06,false,Full quantitative reproduction pending
+P17,LiveWorld,https://arxiv.org/abs/2603.07145,identity_and_abstract,2026-09-06,false,Out-of-sight dynamics prior art; no extracted ranking
+P18,CAT4D,https://arxiv.org/abs/2411.18613,identity_and_abstract,2026-09-06,false,Dynamic novel-view and reconstruction comparator
+P19,CRONOS,https://arxiv.org/abs/2605.23699,identity_and_abstract,2026-09-06,false,Intervention benchmark prior art; not a Recomo reproduction
+P20,CG-World,https://arxiv.org/abs/2607.26452,identity_and_abstract,2026-09-06,false,Data access and exact branch protocol must be pinned before use
+P21,GenDoP,https://arxiv.org/abs/2504.07083,identity_and_abstract,2026-09-06,false,Camera planning prior art
+P22,CineMPC,https://arxiv.org/abs/2401.05272,identity_and_abstract,2026-09-06,false,Physical optics and trajectory-control prior art
+P23,SolarWM official release,https://github.com/Junchao-cs/SolarWM,release_documentation,2026-09-06,false,Staged release and underlying data rights remain separate
+P24,WorldReward,https://arxiv.org/abs/2609.03952,identity_and_abstract,2026-09-06,false,New reward-model candidate; no benchmark reproduction
+P25,WorldExam,https://arxiv.org/abs/2608.02603,identity_and_abstract,2026-09-06,false,Reactivity benchmark; not metric metrology
+P26,CamWorldQA,https://arxiv.org/abs/2608.18710,identity_and_abstract,2026-09-06,false,Perceptual assessment is not geometric certification
+P27,FantasyWorld official implementation,https://github.com/Fantasy-AMAP/fantasy-world,release_overview,2026-09-06,false,Joint video and geometry prior art; leaderboard claim not independently checked
+P28,WorldArena official project,https://github.com/tsinghua-fib-lab/WorldArena,author_overview,2026-09-06,false,Functional evaluation prior art; no new score extraction
+P29,4DiM,https://arxiv.org/abs/2407.07860,identity_and_abstract,2026-09-06,false,Pose and time conditioning differs from generating camera as an output
+P30,GEN3C,https://arxiv.org/abs/2503.03751,identity_and_abstract,2026-09-06,false,Historical geometry-cache baseline; not the entire current frontier
+P31,AC3D,https://arxiv.org/abs/2411.18673,identity_and_abstract,2026-09-06,false,Backbone adaptation; not native calibration in unmodified CogVideoX
+P32,RealCam-I2V official release,https://github.com/ZGCTroy/RealCam-I2V,release_documentation,2026-09-06,false,Exploratory CogVideoX port does not inherit DynamiCrafter paper scores
+P33,CogVideoX,https://arxiv.org/abs/2408.06072,identity_and_abstract,2026-09-06,false,Spatiotemporal VAE is not metric 3D scene state
+P34,UCPE,https://arxiv.org/abs/2512.07237,identity_and_abstract,2026-09-06,false,Camera-encoding comparator; no new numerical audit
+P35,CameraAnything,https://arxiv.org/abs/2607.24591,identity_and_abstract,2026-09-06,false,Refilming and camera-control comparator
+P36,ReCamMaster,https://arxiv.org/abs/2503.11647,identity_and_abstract,2026-09-06,false,Input-video task differs from single-image future prediction
+P37,Track2View,https://arxiv.org/abs/2606.15534,identity_and_abstract,2026-09-06,false,Paired-track supervision and test-time requirements must be recorded
+P38,VGGT-Omega paper,https://arxiv.org/abs/2605.15195,identity_and_abstract,2026-09-06,false,Read together with P02; original VGGT is a different baseline

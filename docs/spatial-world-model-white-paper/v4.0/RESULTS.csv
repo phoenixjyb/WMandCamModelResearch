@@ -1,0 +1,21 @@
+result_id,comparison_group,source_id,locator,model,dataset,metric,value,unit,direction,input_regime,alignment,reproduced,caveat
+D01,DA3_T3_ETH3D_POSED,P05,Table 3,MapAnything,ETH3D,F1,71.9,table_F1,higher,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,Poses enter models or fusion differently
+D02,DA3_T3_ETH3D_POSED,P05,Table 3,Pi3,ETH3D,F1,80.6,table_F1,higher,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,Original Pi3 not Pi3X
+D03,DA3_T3_ETH3D_POSED,P05,Table 3,VGGT,ETH3D,F1,66.7,table_F1,higher,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,Original VGGT not VGGT-Omega
+D04,DA3_T3_ETH3D_POSED,P05,Table 3,DA3-Giant,ETH3D,F1,87.1,table_F1,higher,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,DA3 authors report all rows; not Atlas results
+D05,DA3_T3_ETH3D_POSED,P05,Table 3,DA3-Large,ETH3D,F1,75.2,table_F1,higher,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,DA3 authors report all rows; not Atlas results
+D06,DA3_T3_DTU_POSED,P05,Table 3,MapAnything,DTU,Chamfer,3.97,mm,lower,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,Do not mix with ETH3D F1
+D07,DA3_T3_DTU_POSED,P05,Table 3,Pi3,DTU,Chamfer,1.72,mm,lower,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,Original Pi3 not Pi3X
+D08,DA3_T3_DTU_POSED,P05,Table 3,VGGT,DTU,Chamfer,1.44,mm,lower,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,Original VGGT not VGGT-Omega
+D09,DA3_T3_DTU_POSED,P05,Table 3,DA3-Giant,DTU,Chamfer,1.85,mm,lower,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,DA3 authors report all rows; not Atlas results
+D10,DA3_T3_DTU_POSED,P05,Table 3,DA3-Large,DTU,Chamfer,1.23,mm,lower,ground_truth_pose_reconstruction,source_reconstruction_protocol,false,Dataset-dependent ranking
+S01,SANA_T9_HARD_ROT,P07,Table 9,SANA-WM bidirectional,60s hard trajectory,rotation_error,3.17,degree,lower,2.6B_720p_stage1_single_GPU,Sim3_recovered_trajectory,false,Offline and causal information regimes differ
+S02,SANA_T9_HARD_ROT,P07,Table 9,SANA-WM autoregressive,60s hard trajectory,rotation_error,10.02,degree,lower,2.6B_720p_stage1_single_GPU,Sim3_recovered_trajectory,false,Not absolute metric translation evidence
+S03,SANA_T9_HARD_MEM,P07,Table 9,SANA-WM bidirectional,60s hard trajectory,reported_memory,49.2,GB,lower,2.6B_720p_stage1_single_GPU,not_applicable,false,Exact table configuration; not universal deployment minimum
+S04,SANA_T9_HARD_MEM,P07,Table 9,SANA-WM autoregressive,60s hard trajectory,reported_memory,51.1,GB,lower,2.6B_720p_stage1_single_GPU,not_applicable,false,Parameter count does not prove 24GB fit
+H01,HY2_T6_CAMERA_ROT,P08,Table 6,SEVA,100 OOD images,RotErr,1.690,source_native,lower,source_camera_control_protocol,not_fully_resolved_here,false,No cross-paper or metric-distance interpretation
+H02,HY2_T6_CAMERA_ROT,P08,Table 6,GEN3C,100 OOD images,RotErr,0.944,source_native,lower,source_camera_control_protocol,not_fully_resolved_here,false,No cross-paper or metric-distance interpretation
+H03,HY2_T6_CAMERA_ROT,P08,Table 6,WorldPlay,100 OOD images,RotErr,3.481,source_native,lower,source_camera_control_protocol,not_fully_resolved_here,false,Variant defined by source not latest family release
+H04,HY2_T6_CAMERA_ROT,P08,Table 6,WorldCompass,100 OOD images,RotErr,3.452,source_native,lower,source_camera_control_protocol,not_fully_resolved_here,false,Variant defined by source not latest family release
+H05,HY2_T6_CAMERA_ROT,P08,Table 6,WorldStereo camera-only,100 OOD images,RotErr,0.762,source_native,lower,starred_domain_adaptation_no_memory,not_fully_resolved_here,false,Not the complete memory system
+H06,HY2_T6_CAMERA_ROT,P08,Table 6,WorldStereo2 camera-only,100 OOD images,RotErr,0.492,source_native,lower,starred_domain_adaptation_no_memory,not_fully_resolved_here,false,VAE and trainable-parameter changes require factorial ablation

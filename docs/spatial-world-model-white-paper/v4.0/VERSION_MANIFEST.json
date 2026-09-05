@@ -1,0 +1,32 @@
+{
+  "version": "4.0",
+  "date": "2026-09-06",
+  "evidence_cutoff": "2026-09-06",
+  "status": "research_source_review",
+  "predecessor_commit": "ac2fbf5e354e439e0a31a9e425f433dcdc360555",
+  "frozen_main_baseline": "e88e67e3880b94823f1496093706d25952678465",
+  "languages": ["en", "zh-CN"],
+  "main_sections_each": 18,
+  "slides_each": 24,
+  "active_source_records": 38,
+  "literature_result_rows": 20,
+  "historical_v3_source_records": 71,
+  "source_counts_overlap": true,
+  "hypotheses": ["H1", "H2", "H3", "H4", "H5", "H6", "H7"],
+  "architectures": ["A0", "A1", "A2", "A3"],
+  "experiments": ["E0", "F1", "F2", "F3", "F4", "E1", "E2", "E3"],
+  "tracks": ["native_spatial_foundation_research", "recomo_embodiment"],
+  "model_benchmarks": "not_run",
+  "robot_benchmarks": "not_run",
+  "numerical_evidence": "author_reported_protocol_specific_excerpts",
+  "atlas_graphical_numeric_transcription": "pending",
+  "original_v2_byte_import": "pending",
+  "rendered_publication_qa": "not_run",
+  "independent_translation_certification": "not_performed",
+  "frozen_prefixes": [
+    "docs/camera-aware-video-generation/research-report/v1.0/",
+    "docs/spatial-world-model-white-paper/v1.0/",
+    "docs/spatial-world-model-white-paper/v2.0/",
+    "docs/spatial-world-model-white-paper/v3.0/"
+  ]
+}

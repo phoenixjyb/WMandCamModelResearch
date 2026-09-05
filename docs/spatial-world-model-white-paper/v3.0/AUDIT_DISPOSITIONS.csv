@@ -1,0 +1,39 @@
+audit_id,topic,editorial_disposition,sections,remaining_validation
+A01,CogVideoX 3D VAE,Retain spatiotemporal versus metric distinction,3,No new model result claimed
+A02,AC3D and base CogVideoX,Separate backbone adapter checkpoint and configuration,3,Exact checkpoint reproduction pending
+A03,RealCam-I2V port scores,Do not transfer DynamiCrafter results to exploratory CogVideoX port,3,Exact implementation reproduction pending
+A04,Metric-depth prior,Narrow learned prior versus external metrology,3;8,E0 and E1 pending
+A05,Atlas native 3D tokens,Keep mesh and splat tokenization undisclosed,4,Await primary disclosure
+A06,Atlas AR and rectified flow,Retain as company architecture disclosure,4,Not reproduced
+A07,Atlas automatic camera planning,Distinguish authored paths from planner output,1;4,No automatic-planning result attributed
+A08,Atlas interface causal inference,Replace interface superiority claim with confounded system comparison,4,Matched ablation pending
+A09,Pixel-perfect metric guarantee,Do not assert metric tolerance,4;11,E1 pending
+A10,Atlas core contact physics,Separate model from wider simulation system,1;4,Core boundary undisclosed
+A11,Capability ladder,Replace total ordering with multidimensional profile,2,Task-specific comparisons pending
+A12,GEN3C priority,Retain historical baseline and add current memory comparisons,3;5,E2 pending
+A13,Novelty of cache,Explicitly credit existing memory mechanisms,5,New contribution unproven
+A14,SpatialContextPlan novelty,Credit AW4RE and test evidence policy against budgeted retrieval,5;6;7,E3 pending
+A15,AR requirement,Separate offline bidirectional and causal streaming profiles,5;7,E1 pending
+A16,Temporal compression,Require raw-frame to latent-time mapping and aliasing tests,8,E0 pending
+A17,Aligned errors and absolute scale,Separate arbitrary-scale anchored and predicted-metric tracks,5;8,E0 and E1 pending
+A18,Cache savings and total VRAM,Report component and total memory separately,5;12,Full configuration profiling pending
+A19,Bounded attention and storage,Separate working context from persistent memory growth,5;7,E2 pending
+A20,Out-of-sight dynamics,Credit LiveWorld and test re-entry and stale-state revision,5;9;11,E2 pending
+A21,Director and trajectory novelty,Credit directed generation and physical cinematography prior art,5,Method-specific comparison pending
+A22,Action-ranking novelty,Credit predictive planning and test realized decision gains,5;6,E3 pending
+A23,Counterfactual novelty,Use explicit intervention types and branch lineage,5;6;10,E3 pending
+A24,Measured always overrides,Use freshness calibration dependencies and conflicting hypotheses,9,E2 pending
+A25,Confidence versus calibration,Define predictive events and held-out reliability tests,9;11,E2 and E3 pending
+A26,Pose estimator failure,Separate generation control evaluator and inconclusive outcomes,9;11,E0 pending
+A27,Determinism and safety,Retain local fresh sensing constraints and recovery authority,7;9,No safety certification claimed
+A28,24 GB readiness,Keep as target and require end-to-end profiling,12,Not measured
+A29,Team and GPU estimates,Replace fixed procurement implications with scenario release cards,12,Throughput-based budgeting pending
+A30,SolarWM release completeness,Separate paper stages model artifacts and data access,5;12,Pin artifacts before use
+A31,Code and weight licenses,Record separate rights and upstream restrictions,12,Dependency-specific clearance pending
+A32,Original v2 preservation,Record discrepancy and source identities without overwriting frozen files,13,Original-byte repository import still pending
+A33,Bibliography identity,Preserve checked identifiers without implying result reproduction,1,Per-result reproduction pending
+A34,Single SOTA winner,Use task and resource-specific comparison instead of overall ranking,2;5,Matched benchmark pending
+A35,Atlas priority in joint modeling,Give 4DiM Matrix3D and related work distinct credit,3;4,No exclusive priority asserted
+A36,Rays as Pixels and depth,Label depth extension as proposal not established paper output,3;10,Joint-extension experiment pending
+A37,Static geometry and optics,Keep view-dependent effects masks and optical tests,3;8;9,E1 pending
+A38,Invented feasibility,Separate creative authorization from real-world observation and execution,6;9;14,E3 pending

@@ -1,61 +1,53 @@
 # World Models and Camera-Aware Video Generation Research
 
-This repository preserves the Recomo research stack on **camera-aware video generation, spatial world models, World Labs Atlas, and executable cinematic robotics**.
+Versioned Recomo research on camera-aware generation, spatial world models and executable cinematography.
 
-The central thesis is:
+## Current research-source review — v4.0
 
-> A useful filming world model needs a calibrated camera contract, persistent and provenance-aware spatial state, geometry-conditioned generation, cinematic planning, independent verification, and deterministic robot execution.
+V4 pursues two connected tracks: **native spatial foundation-model research** and **Recomo embodied validation**. It compares reconstruction, generation, novel views, dynamics, memory, optics and world construction without reducing the whole program to robot shot ranking or copying an undisclosed Atlas architecture.
 
-## Start here
-
-### Current white paper — v2.0
-
-- [English Markdown](docs/spatial-world-model-white-paper/v2.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v2.0_EN.md)
-- [English PDF](docs/spatial-world-model-white-paper/v2.0/en/From_Camera_Controlled_Video_to_Spatial_World_Models_Recomo_White_Paper_v2.0_EN.pdf)
-- [中文 Markdown](docs/spatial-world-model-white-paper/v2.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v2.0_CN.md)
-- [中文 PDF](docs/spatial-world-model-white-paper/v2.0/zh-CN/从相机可控视频到空间世界模型_Recomo技术白皮书_v2.0_CN.pdf)
-- [Atlas disclosure audit — English](docs/spatial-world-model-white-paper/v2.0/source-audit/en/Atlas_Technical_Disclosure_Audit_and_Recomo_Implications_v2.0_EN.md)
-- [Atlas 技术披露逐项审计——中文](docs/spatial-world-model-white-paper/v2.0/source-audit/zh-CN/Atlas技术披露逐项审计与Recomo研发影响_v2.0_CN.md)
-
-### Foundational research report and presentation
-
-- [English research report](docs/camera-aware-video-generation/research-report/v1.0/en/camera_aware_video_generation_research_v1.0_EN.md)
-- [中文研究报告](docs/camera-aware-video-generation/research-report/v1.0/zh-CN/相机感知视频生成与世界模型研究_v1.0_CN.md)
-- [English slide deck](docs/camera-aware-video-generation/research-report/v1.0/slides/camera_aware_video_generation_evolution_recommendations_v1.0_EN.pptx)
-- [中文演示文稿](docs/camera-aware-video-generation/research-report/v1.0/slides/相机感知视频生成演进与Recomo建议_v1.0_CN.pptx)
+- [V4 overview and complete source stack](docs/spatial-world-model-white-paper/v4.0/README.md)
+- [English technical white paper](docs/spatial-world-model-white-paper/v4.0/en/WHITE_PAPER.md)
+- [中文技术白皮书](docs/spatial-world-model-white-paper/v4.0/zh-CN/WHITE_PAPER.md)
+- [Atlas and its five reconstruction comparators](docs/spatial-world-model-white-paper/v4.0/ATLAS_COMPARISON.md)
+- [Task-family literature coverage](docs/spatial-world-model-white-paper/v4.0/LITERATURE_COVERAGE.csv)
+- [Protocol-qualified result excerpts](docs/spatial-world-model-white-paper/v4.0/RESULTS.csv)
+- [Foundation and embodiment experiments](docs/spatial-world-model-white-paper/v4.0/EXPERIMENTS.md)
+- [English slide source](docs/spatial-world-model-white-paper/v4.0/slides/DECK_EN.md) / [中文演示源稿](docs/spatial-world-model-white-paper/v4.0/slides/DECK_CN.md)
 
 ## Version lineage
 
-| Stack | Status | Main contribution |
+| Stack | Status | Role |
 |---|---|---|
-| Research report v1.0 | Frozen | Evolution from pose conditioning through rays, geometry caches, 4D correspondence, and native spatial models. |
-| White paper v1.0 | Frozen baseline | First integrated technical white paper and Recomo counterpart proposal. |
-| White paper v2.0 | Current | Paragraph-by-paragraph Atlas disclosure audit; adds `SpatialAnchor`, `SpatialContextPlan`, and the context compiler; revises the R&D gates. |
+| Research report v1.0 | Preserved repository edition | Historical review and bilingual presentations |
+| White paper v1.0 | Preserved repository edition | Initial integrated research position |
+| White paper v2.0 | Preserved repository edition | Atlas audit and spatial-context contracts; differs from longer original attachment |
+| White paper v3.0 | Preserved audit revision | Evidence correction, decision-consistent prediction and safeguards |
+| White paper v4.0 | Current research-source review | Dual-track scope, deeper comparator records, alternative architectures and expanded experiments |
 
-See [CHANGELOG.md](CHANGELOG.md) and the [v2.0 version manifest](docs/spatial-world-model-white-paper/v2.0/VERSION_MANIFEST_v2.0.md).
+The original conversation v2 and repository v2 are not identical texts. Their provenance and remaining restoration work are recorded in [v4 reconciliation](docs/spatial-world-model-white-paper/v4.0/RECONCILIATION.md). No historical directory is silently rewritten by this update.
 
-## Repository layout
+## Historical materials
 
-```text
-docs/
-├── camera-aware-video-generation/
-│   └── research-report/v1.0/
-└── spatial-world-model-white-paper/
-    ├── v1.0/
-    └── v2.0/
-        ├── source-audit/
-        └── assets/
+[Research report and presentations v1.0](docs/camera-aware-video-generation/research-report/v1.0/README.md) · [White paper v1.0](docs/spatial-world-model-white-paper/v1.0/README.md) · [White paper v2.0](docs/spatial-world-model-white-paper/v2.0/README.md) · [V3 audit stack](docs/spatial-world-model-white-paper/v3.0/README.md)
+
+[Historical changelog](CHANGELOG.md) · [V3 changes](CHANGELOG_v3.0.md) · [V4 changes](CHANGELOG_v4.0.md)
+
+## Evidence and publication status
+
+The 38 active v4 source records overlap the 71 historical v3 entries. Neither source count is a count of independently reproduced methods. V4 contains 20 explicitly author-reported numerical rows from three source-table protocols. The exact numeric Atlas graphical panels remain untranscribed from a verified primary artifact.
+
+Current v4 deliverables are bilingual Markdown papers and slide sources, supporting technical documents and CSV/JSON records. No v4 PDF/DOCX/PPTX rendering or page/slide visual certification is claimed. Model/robot experiments, 24 GB performance claims and original-v2 byte restoration remain separate work. See [open gaps](docs/spatial-world-model-white-paper/v4.0/OPEN_EVIDENCE_GAPS.csv).
+
+## Validation
+
+```bash
+python -m unittest discover -s tests -p 'test_research_v4.py' -v
+python scripts/validate_research_v4.py --base ac2fbf5e354e439e0a31a9e425f433dcdc360555
 ```
 
-Each white-paper version includes editable Markdown and Word sources, rendered PDFs, and the figures required for GitHub Markdown rendering. Convenience ZIP bundles are intentionally omitted because Git already provides versioned archival; release bundles can be attached to formal GitHub releases later.
-
-## Version policy
-
-- `v1.0` is frozen as the original baseline.
-- `v2.0` is the current research position.
-- Future changes should create a new version directory rather than silently rewriting a frozen version.
-- Corrections to packaging, broken links, or checksums may be made without changing the intellectual content, but must be recorded in the changelog.
+Read-only documentation CI validates source/result records, links, bilingual structure and frozen-version integrity. It uploads review artifacts without committing generated files. A green check is not certification of scientific truth, translation equivalence, licensing, model performance or robot safety. Existing v3 validators remain available for that historical revision.
 
 ## License
 
-No reuse license has yet been selected for this research stack. Publication in this repository does not itself grant a separate content or software license beyond GitHub's applicable terms.
+No new reuse license is selected by this update. Repository publication does not itself grant a separate license beyond applicable GitHub terms. External code, weights, data, outputs, redistribution and teacher uses require separate checks.

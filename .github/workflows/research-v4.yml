@@ -1,0 +1,60 @@
+name: Validate v4 research sources
+
+on:
+  pull_request:
+    paths:
+      - 'docs/spatial-world-model-white-paper/v4.0/**'
+      - 'scripts/validate_research_v4.py'
+      - 'tests/test_research_v4.py'
+      - '.github/workflows/research-v4.yml'
+      - 'README.md'
+      - 'CHANGELOG_v4.0.md'
+  push:
+    branches: ['research/v3-audit-reconciliation']
+    paths:
+      - 'docs/spatial-world-model-white-paper/v4.0/**'
+      - 'scripts/validate_research_v4.py'
+      - 'tests/test_research_v4.py'
+      - '.github/workflows/research-v4.yml'
+      - 'README.md'
+      - 'CHANGELOG_v4.0.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: research-v4-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run v4 validator positive and negative tests
+        run: python -m unittest discover -s tests -p 'test_research_v4.py' -v
+      - name: Validate actual sources and frozen versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_research_v4.py --base ac2fbf5e354e439e0a31a9e425f433dcdc360555 | tee validation-v4.json
+      - name: Upload review sources and validation record
+        uses: actions/upload-artifact@v4
+        with:
+          name: v4-research-review-sources
+          path: |
+            docs/spatial-world-model-white-paper/v4.0/
+            scripts/validate_research_v4.py
+            tests/test_research_v4.py
+            CHANGELOG_v4.0.md
+            validation-v4.json
+          if-no-files-found: error
+          retention-days: 30

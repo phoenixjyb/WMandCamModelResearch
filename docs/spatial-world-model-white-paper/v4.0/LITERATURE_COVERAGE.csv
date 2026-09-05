@@ -1,0 +1,33 @@
+family,work,source_ids,role,review_depth,quantitative_status,priority,next_evidence
+camera,CogVideoX AC3D RealCam-I2V,P31 P32 P33,historical_controls,abstract_and_release,not_reproduced,historical,Pin exact evaluated port and backbone
+camera,SANA-WM,P07,efficient_offline_and_causal,table_and_protocol,author_table_extracted,required,Execute exact offline and causal variants
+camera,UCPE,P34,camera_encoding,abstract,not_extracted,targeted,Audit intrinsics and distortion protocol
+camera,CameraAnything,P35,refilming_controls,abstract,not_extracted,targeted,Inspect exact conditioning and held-out tests
+geometry,Pi3X posed,P01 P04,Atlas_named_comparator,release_inspected,Atlas_numeric_row_unverified,required,Pin pose-conditioned checkpoint and preprocessing
+geometry,Pi3,P03 P05,Atlas_named_comparator,methods_and_external_table,author_table_extracted,required,Separate own paper and DA3 evaluation protocols
+geometry,VGGT-Omega 1B,P02 P38,Atlas_named_comparator,release_warning,affected_results_quarantined,required,Resolve contamination overlap and checkpoint identity
+geometry,Depth Anything 3,P05,Atlas_named_comparator,methods_and_table,author_table_extracted,required,Compare Giant and Large with equal input privileges
+geometry,MapAnything,P06 P05,Atlas_named_comparator,methods_and_external_table,author_table_extracted,required,Exact and noisy geometric priors
+geometry,CUT3R,P11,persistent_recurrent_geometry,author_project,not_extracted,required,Virtual-camera query and memory revision
+geometry,Glob3R,P13,global_optimization_alternative,targeted_methods,not_extracted,targeted,Compare calibrated registration and global consistency
+explicit3d,AnySplat,P12,feedforward_renderable_3D,targeted_methods,not_extracted,required,Held-out appearance plus geometry evaluation
+joint,Matrix3D,P14,multimodal_joint_model,targeted_formulation,not_extracted,required,Matched joint-versus-specialist training
+joint,Rays as Pixels,P15,joint_camera_video,targeted_formulation,not_extracted,required,Camera estimation and conditioned generation separately
+joint,FantasyWorld,P27,joint_video_geometry,release_overview,not_extracted,required,Review losses and available checkpoints
+joint,4DiM,P29,pose_and_time_conditioning,abstract,not_extracted,required,Task boundaries and scale calibration
+world_system,HY-World 2.0,P08,functional_counterpart,targeted_methods,author_table_extracted,required,Pipeline versus single model cost accounting
+world_system,Atlas,P01,company_reference,disclosure_text,graphical_numbers_not_transcribed,required,Obtain exact benchmark artifact and API contract
+memory,WorldStereo 2.0,P08,keyframe_and_dual_memory,methods_and_tables,author_table_extracted,required,Factorial VAE and trainable-block comparison
+memory,GEN3C,P30,explicit_geometry_cache,abstract,external_table_extracted,historical,Reproduce before assigning relative superiority
+memory,Mirage OctWorld VMem ReWorld UCM Wonder,INHERITED_V3,additional_memory_families,inherited_scope,not_newly_reproduced,targeted,Recheck variants and distinguish cache from total memory
+dynamics,LiveWorld,P17,out_of_sight_state,abstract,not_extracted,required,State evolution under occlusion and evidence revision
+dynamics,CAT4D,P18,multiview_4D,abstract,not_extracted,required,Fixed-event reframing separate from future prediction
+dynamics,ReCamMaster Track2View,P36 P37,dynamic_refilming,abstract,not_extracted,required,Synchronized source and target protocol
+context,AW4RE,P16,sensing_query_prior_art,abstract,not_extracted,required,Full protocol and implementation comparison
+planning,GenDoP CineMPC,P21 P22,creative_and_physical_camera_planning,abstract,not_extracted,required,Fixed-candidate and free-planning tracks
+benchmark,WorldScore,P09,world_generation_control_quality_dynamics,project_protocol,not_imported_as_latest_ranking,required,Pin leaderboard and evaluation revision
+benchmark,PIVOT,P10,trajectory_pose_intrinsics_protocol,targeted_protocol,not_extracted,required,Five-scene scope and calibration uncertainty
+benchmark,CRONOS CG-World,P19 P20,intervention_prior_art,abstract,not_extracted,required,Branch invariants and data access
+benchmark,WorldExam CamWorldQA,P25 P26,reactivity_and_perception,abstract,not_extracted,targeted,Metric calibration and failure analysis
+benchmark,WorldArena,P28,embodied_functional_utility,author_overview,not_extracted,targeted,Separate sensor prediction from manipulation policy value
+reward,WorldReward,P24,action_and_visual_preferences,abstract,not_extracted,targeted,No safety authority; test evaluator transfer
