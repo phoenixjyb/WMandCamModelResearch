@@ -103,6 +103,12 @@ class V4ValidationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             v4.ensure_frozen('M\tdocs/spatial-world-model-white-paper/v2.0/en/x.md\n')
 
+    def test_multibyte_size_is_not_english_character_count(self):
+        v4.check_paper_size('文' * 4000)
+        v4.check_paper_size('a' * 11000)
+        with self.assertRaises(ValueError):
+            v4.check_paper_size('文' * 100)
+
 
 if __name__ == '__main__':
     unittest.main()

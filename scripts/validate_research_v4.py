@@ -159,6 +159,13 @@ def ensure_frozen(changes: str) -> None:
     require(not changes.strip(), f'Frozen directory changes detected:\n{changes}')
 
 
+def check_paper_size(text: str) -> None:
+    # Gross byte-size sanity check only. English and Chinese character counts
+    # are not comparable measures of completeness or translation equivalence.
+    require(len(text.encode('utf-8')) > 10000,
+            'Paper unexpectedly small (UTF-8 byte sanity check)')
+
+
 def validate(root: Path = ROOT, base: str = BASE, check_git: bool = True) -> dict:
     root = root.resolve()
     folder = root / REL
@@ -178,7 +185,7 @@ def validate(root: Path = ROOT, base: str = BASE, check_git: bool = True) -> dic
     for language in ('en', 'zh-CN'):
         text = (folder / language / 'WHITE_PAPER.md').read_text(encoding='utf-8')
         check_numbering(text, 18)
-        require(len(text) > 10000, 'Paper unexpectedly truncated')
+        check_paper_size(text)
     for name in ('DECK_EN.md', 'DECK_CN.md'):
         check_numbering((folder / 'slides' / name).read_text(encoding='utf-8'), 24, slide=True)
     for path in folder.rglob('*.md'):
