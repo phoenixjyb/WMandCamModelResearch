@@ -1,0 +1,52 @@
+name: Validate v3 research sources
+
+on:
+  pull_request:
+    paths:
+      - 'docs/spatial-world-model-white-paper/**'
+      - 'docs/camera-aware-video-generation/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/**'
+      - 'README.md'
+      - 'CHANGELOG_v3.0.md'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/research-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run structural validator unit tests
+        run: python -m unittest discover -s tests -p 'test_research_v3.py' -v
+      - name: Validate actual bilingual sources and frozen paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_research_v3.py --base e88e67e3880b94823f1496093706d25952678465 | tee validation-v3.json
+      - name: Attach review sources and validation record
+        uses: actions/upload-artifact@v4
+        with:
+          name: v3-research-review-sources
+          path: |
+            docs/spatial-world-model-white-paper/v3.0/
+            validation-v3.json
+          if-no-files-found: error
+          retention-days: 30

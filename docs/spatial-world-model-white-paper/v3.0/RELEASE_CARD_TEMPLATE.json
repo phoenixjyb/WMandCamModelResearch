@@ -1,0 +1,73 @@
+{
+  "schema": "recomo.research-release-card/3.0",
+  "status": "unmeasured_template",
+  "evidence_cutoff": "2026-09-05",
+  "model_execution_status": "not_run",
+  "identity": {
+    "code_repository": null,
+    "code_commit": null,
+    "weight_uri": null,
+    "weight_sha256": null,
+    "base_model": null,
+    "trainable_parameters": null,
+    "data_manifest_sha256": null,
+    "evaluator_commit": null
+  },
+  "task": {
+    "mode": null,
+    "projection": null,
+    "depth_semantics": null,
+    "scale_track": null,
+    "registration_protocol": null,
+    "calibration_revision": null,
+    "world_time_policy": null,
+    "candidate_set_manifest": null,
+    "intervention_protocol": null
+  },
+  "runtime": {
+    "offline_or_streaming": null,
+    "device": null,
+    "precision": null,
+    "image_size": null,
+    "frame_count": null,
+    "sampler": null,
+    "steps": null,
+    "batch_size": null,
+    "refiner": null,
+    "context_policy": null,
+    "peak_device_gib": null,
+    "persistent_cache_gib": null,
+    "host_ram_gib": null,
+    "time_to_first_usable_preview_s": null,
+    "end_to_end_s": null
+  },
+  "rights": {
+    "code_license": null,
+    "weight_license": null,
+    "data_terms": null,
+    "output_use": null,
+    "redistribution": null,
+    "teacher_data_eligible": null,
+    "reviewed_revision": null,
+    "clearance_status": "not_cleared"
+  },
+  "evaluation": {
+    "E0": "not_run",
+    "E1": "not_run",
+    "E2": "not_run",
+    "E3": "not_run",
+    "preregistered_thresholds": null,
+    "scene_split_manifest": null,
+    "all_trials_log": null,
+    "seed_and_retry_policy": null,
+    "failure_accounting": null,
+    "scene_level_intervals": null,
+    "actual_robot_capture_manifest": null
+  },
+  "publication": {
+    "source_digest": null,
+    "rendered_artifact_digest": null,
+    "visual_qa": "not_run",
+    "translation_review": "editorial_only_not_independent"
+  }
+}

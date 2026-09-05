@@ -1,0 +1,19 @@
+{
+  "version": "3.0",
+  "status": "proposed_audit_driven_revision",
+  "evidence_cutoff": "2026-09-05",
+  "base_commit": "e88e67e3880b94823f1496093706d25952678465",
+  "languages": ["en", "zh-CN"],
+  "main_sections_per_language": 14,
+  "audit_dispositions": 38,
+  "source_identifiers": 71,
+  "model_benchmarks_reproduced": false,
+  "original_v2_byte_import_complete": false,
+  "rendered_v3_editions_certified": false,
+  "frozen_paths": [
+    "docs/camera-aware-video-generation/research-report/v1.0",
+    "docs/spatial-world-model-white-paper/v1.0",
+    "docs/spatial-world-model-white-paper/v2.0"
+  ],
+  "review_scope": "Bilingual editorial revision and audit incorporation; not independent translation or empirical certification."
+}
